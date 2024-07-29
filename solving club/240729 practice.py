@@ -78,7 +78,7 @@
 #     print(f'#{i+1} {sum_building}')
 
 
-# 4831 전기버스
+# # 4831 전기버스
 t = int(input())
 for i in range(t):
     k, n, m = map(int, input().split())
@@ -103,3 +103,29 @@ for i in range(t):
         print(f'#{i+1} {run_count}')
 
 
+# # 전기 버스 2
+# t = int(input())
+# for i in range(t):
+#     k, n, m = map(int, input().split())
+#     m = list(map(int, input().split()))
+#     first_lst = [0 for _ in range(n)]
+#     for j in m:
+#         first_lst[j] = k
+#     # 정류장에 충전소 할당 만날때마다 k를 리스트의 값 으로 만들어 주기 움직일 때마다 1씩 뺴주기
+#     second_lst = first_lst[:]
+#     second_lst[0] = k
+#     print(first_lst)
+#     print(second_lst)
+#     for bus in range(n-1):
+#         if second_lst[bus] > 1:
+#         second_lst[bus+1] = second_lst[bus] - 1    
+#         # if second_lst[bus] <= 1:
+#         #     second_lst[bus] = first_lst[bus]
+#         #     if first_lst[bus] == 0:
+#         #         print(0)
+                
+
+
+#     print(second_lst)
+#     # if             
+            
