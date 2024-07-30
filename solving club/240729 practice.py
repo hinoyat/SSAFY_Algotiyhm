@@ -142,26 +142,33 @@
 
 
 
-# #4831 전기버스
-#
+# # 4831 전기버스
+# # 이거는 주말에 다시 집에서 혼자 이 방법 말고 풀어보기
 # t = int(input())
 # for i in range(t):
 #     k, n, m = map(int, input().split())
 #     m_lst = list(map(int, input().split()))
 #     m_lst.append(n)
-#
+#     # 충전해야 하는 횟수
 #     cnt = 0
+#     # 전기통
 #     fuel = k
-#
+#     # 1칸씩 버스가 갑니다
 #     for s in range(1, n):
+#         # 연료가 1씩 빠져요
 #         fuel -= 1
+#         # 근데 여기서 해당 정류장에 충전소가 있으면
 #         if s in m_lst:
+#             # 기름이 0보다 적다? 탈락
 #             if fuel < 0:
 #                 cnt = 0
+#             # 다음 정류장 까지의 거리가 현재 갈 수 있는 거리보다 길다?
 #             elif m_lst[m_lst.index(s)+1] - s > fuel:
+#                 # 전기 충전하고
 #                 fuel = k
+#                 # 충전 횟수 늘려요
 #                 cnt += 1
-#
+#     # 쁘린또
 #     print(f'#{i+1} {cnt}')
 
 
