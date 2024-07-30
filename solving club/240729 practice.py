@@ -79,29 +79,32 @@
 
 
 # # 4831 전기버스
-t = int(input())
-for i in range(t):
-    k, n, m = map(int, input().split())
-    m = list(map(int, input().split()))
-    first_lst = [0 for _ in range(n)]
-    # print(first_lst)
-    for j in m:
-        first_lst[j] = 3
-    # 정류장에 충전소 할당 만날때마다 k를 리스트의 값 으로 만들어 주기 움직일 때마다 1씩 뺴주기
-    # print(first_lst)
-    fail_lst = []
-    for d in range(n-k):
-        if sum(first_lst[d:d+k]) == 0:
-            fail_lst.append('0')
-        else:
-            fail_lst.append('1')
-    # print(fail_lst)
-    run_count = n//k
-    if '0' in fail_lst:
-        print(f'#{i+1} 0')
-    else:
-        print(f'#{i+1} {run_count}')
-
+# t = int(input())
+# for i in range(t):
+#     k, n, m = map(int, input().split())
+#     m = list(map(int, input().split()))
+#     first_lst = [0 for _ in range(n)]
+#     first_lst[0] = k
+#
+#     for j in m:
+#         first_lst[j] = k
+#     print(first_lst)
+#     fail_lst = []
+#     for d in range(n-k):
+#         if sum(first_lst[d:d+k]) == 0:
+#             fail_lst.append('0')
+#         else:
+#             fail_lst.append('1')
+#     print(fail_lst)
+#     if n % k == 0:
+#         run_count = n // k -1
+#     else:
+#         run_count = n // k
+#     if '0' in fail_lst:
+#         print(f'#{i+1} 0')
+#     else:
+#         print(f'#{i+1} {run_count}')
+#
 
 # # 전기 버스 2
 # t = int(input())
@@ -126,6 +129,64 @@ for i in range(t):
                 
 
 
-#     print(second_lst)
-#     # if             
-            
+# # 전기버스 3333333333333333333333
+# t = int(input())
+# for i in range(t):
+#     k, n, m = map(int, input().split())
+#     m = list(map(int, input().split()))
+#     first_lst = [0 for _ in range(n+1)]
+#     for
+
+
+
+
+
+
+# #4831 전기버스
+#
+# t = int(input())
+# for i in range(t):
+#     k, n, m = map(int, input().split())
+#     m_lst = list(map(int, input().split()))
+#     m_lst.append(n)
+#
+#     cnt = 0
+#     fuel = k
+#
+#     for s in range(1, n):
+#         fuel -= 1
+#         if s in m_lst:
+#             if fuel < 0:
+#                 cnt = 0
+#             elif m_lst[m_lst.index(s)+1] - s > fuel:
+#                 fuel = k
+#                 cnt += 1
+#
+#     print(f'#{i+1} {cnt}')
+
+
+
+
+
+# # 전기 빠스 강사님
+# # 첫 번째 방법 갔다 충전소 없으면 뒤로 돌아가기
+# def solve():
+#     for i in range(M+2-1):
+#         if STOPS[i+1] - STOPS[i] > K:
+#             return 0
+#     cur_pos = 0
+#     cnt = 0
+#     for i in range(1, M+2):
+#         if cur_pos+K < STOPS[i]:
+#             cnt += 1
+#             cur_pos = STOPS[i-1]
+#     return cnt
+#
+# T = int(input())
+# for tc in range(1,T+1):
+#     K, N, M = map(int, input().split())
+#     STOPS = [0] + list(map(int, input().split()))
+#     STOPS.append(N)
+#
+#     print(f'#{tc} {solve()}')
+#     # print(STOPS)
