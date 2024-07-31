@@ -1,3 +1,5 @@
+from pprint import pprint
+
 # # 1209 sum [2일차]
 # # print(len(arr))
 #
@@ -149,28 +151,190 @@
 
 
 
-# 2001 파리 퇴치
+# # 2001 파리 퇴치
 
-test_case = int(input())
-for tc in range(test_case):
-    n, m = map(int, input().split())
-    lst = [[0 for _ in range(n)]for _ in range(n)]
+# test_case = int(input())
+# for tc in range(1, test_case +1):
+#     n, m = map(int, input().split())
+#     lst = [[0 for _ in range(n)]for _ in range(n)]
 
 
-    for ar1 in range(n):
-        arr = list(map(int,input().split()))
-        for ar2 in range(n):
-            lst[ar1][ar2] = arr[ar2]
+#     for ar1 in range(n):
+#         arr = list(map(int,input().split()))
+#         for ar2 in range(n):
+#             lst[ar1][ar2] = arr[ar2]
 
-    kill_max = -21e8
-    for i in range(0, n-m+1):
-        sum_kill = 0
-        for j in range(0, n-m+1):
+#     kill_max = -21e8
+#     for i in range(0, n-m+1):
+#         for j in range(0, n-m+1):
+#             sum_kill = 0
 
-            for s in range(m):
-                for d in range(m):
-                    sum_kill += lst[s][d]
+#             for s in range(m):
+#                 for d in range(m):
+#                     sum_kill += lst[s+i][d+j]
 
-            if sum_kill >= kill_max:
-                kill_max = sum_kill
-    print(kill_max)
+#             if sum_kill >= kill_max:
+#                 kill_max = sum_kill
+#     print(f'#{tc} {kill_max}')
+
+
+# # 1979 어디에 단어가 들어갈 수 있을까  ####################
+# # from pprint import pprint
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     # n은 배열 크기, k는 단어의 길이
+#     n, k = map(int, input().split())
+
+#     lst = [[0 for _ in range(n)] for _ in range(n)]
+    
+#     for i in range(n):
+#         new_lst = list(map(int,input().split()))
+#         for j in range(n):
+#             lst[i][j] = new_lst[j]
+#     # pprint(lst)
+#     cnt = 0
+#     # 행
+#     for s in range(n):
+#         val = 0
+#         for d in range(n):
+#             if lst[s][d] == 1:
+#                 val += 1
+#                 if d == n-1:
+#                     if val == k:
+#                         cnt += 1
+#                         val = 0
+#                     else:
+#                         pass
+#             else:
+#                 if val == k:
+#                     cnt +=1
+#                     val = 0
+#                 else:
+#                     val = 0
+    
+#     # 열
+#     for s in range(n):
+#         val = 0
+#         for d in range(n):
+#             if lst[d][s] == 1:
+#                 val += 1
+#                 if d == n-1:
+#                     if val == k:
+#                         cnt += 1
+#                         val = 0
+#                     else:
+#                         pass
+#             else:
+#                 if val == k:
+#                     cnt +=1
+#                     val = 0
+#                 else:
+#                     val = 0    
+
+#     print(f'#{tc} {cnt}')
+
+
+# # 스도쿠 검증
+
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     sudoku = [[0 for _ in range(9)] for _ in range(9)]
+#     N = len(sudoku)
+#     for i in range(N):
+#         sudoku_num = list(map(int,input().split()))
+#         for j in range(N):
+#             sudoku[i][j] = sudoku_num[j]
+#     # 행 검증 행의 합이 45면 정상
+#     check_lst = []
+#     hang_val = 0
+#     for hang in sudoku:
+#         for s in hang:
+#             hang_val += s
+#         check_lst.append(hang_val)    
+#         hang_val = 0
+#     #  합 45 정상
+#     # print(f'# {check_lst}')
+
+#     yeol_val = 0
+#     for i in range(N):
+#         for j in range(N):
+#             yeol_val += sudoku[j][i]
+#         check_lst.append(yeol_val)    
+#         yeol_val = 0
+#     # print(f'# {check_lst}')
+    
+#     # 3X3 합이 45여야 정상
+#     for i in range(0,N,3):
+#         box_val = 0
+#         for s in range(0,N,3):
+#             box_val += sudoku[i][s]
+#             box_val += sudoku[i][s+1]
+#             box_val += sudoku[i][s+2]
+#             box_val += sudoku[i+1][s]
+#             box_val += sudoku[i+1][s+1]
+#             box_val += sudoku[i+1][s+2]
+#             box_val += sudoku[i+2][s]
+#             box_val += sudoku[i+2][s+1]
+#             box_val += sudoku[i+2][s+2]
+#             check_lst.append(box_val)
+#             box_val = 0
+
+#     sudoku_pos = True
+
+#     for val in check_lst:
+#         if val != 45:
+#             sudoku_pos = False
+#             print(f'#{tc} 0')
+#             break
+#     if sudoku_pos == True:
+#         print(f'#{tc} 1')
+
+# # 스도쿠 검증
+
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     sudoku = [[0 for _ in range(9)] for _ in range(9)]
+#     N = len(sudoku)
+#     for i in range(N):
+#         sudoku_num = list(map(int,input().split()))
+#         for j in range(N):
+#             sudoku[i][j] = sudoku_num[j]
+#     # 행 검증 행의 합이 45면 정상
+#     check_lst = []
+#     hang_val = 0
+#     for hang in sudoku:
+#         for s in hang:
+#             hang_val += s
+#         check_lst.append(hang_val)    
+#         hang_val = 0
+#     #  합 45 정상
+#     # print(f'# {check_lst}')
+
+#     yeol_val = 0
+#     for i in range(N):
+#         for j in range(N):
+#             yeol_val += sudoku[j][i]
+#         check_lst.append(yeol_val)    
+#         yeol_val = 0
+    
+#     # 3X3 합이 45여야 정상
+#     for i in range(0,N,3):
+#         box_val = 0
+#         for s in range(0,N,3):
+#             box_val += sum(sudoku[i][s:s+3])
+#             box_val += sum(sudoku[i+1][s:s+3])
+#             box_val += sum(sudoku[i+2][s:s+3])
+
+#             check_lst.append(box_val)
+#             box_val = 0
+#     # print(f'# {check_lst}')
+
+#     sudoku_pos = True
+
+#     for val in check_lst:
+#         if val != 45:
+#             sudoku_pos = False
+#             print(f'#{tc} 0')
+#             break
+#     if sudoku_pos == True:
+#         print(f'#{tc} 1')
