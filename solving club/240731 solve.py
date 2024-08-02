@@ -289,7 +289,7 @@ from pprint import pprint
 #     if sudoku_pos == True:
 #         print(f'#{tc} 1')
 
-# # 스도쿠 검증
+# # 스도쿠 검증 이거 전체가 5인 경우도 맞았다고 할 수 있어
 
 # test_case = int(input())
 # for tc in range(1, test_case+1):
@@ -305,7 +305,7 @@ from pprint import pprint
 #     for hang in sudoku:
 #         for s in hang:
 #             hang_val += s
-#         check_lst.append(hang_val)    
+#         check_lst.append(hang_val)
 #         hang_val = 0
 #     #  합 45 정상
 #     # print(f'# {check_lst}')
@@ -314,7 +314,7 @@ from pprint import pprint
 #     for i in range(N):
 #         for j in range(N):
 #             yeol_val += sudoku[j][i]
-#         check_lst.append(yeol_val)    
+#         check_lst.append(yeol_val)
 #         yeol_val = 0
     
 #     # 3X3 합이 45여야 정상
@@ -338,3 +338,18 @@ from pprint import pprint
 #             break
 #     if sudoku_pos == True:
 #         print(f'#{tc} 1')
+
+
+# 스도쿠 강사님
+
+test_case = int(input())
+for tc in range(1, test_case+1):
+    arr = [list(map(int,input().split()))for _ in range(9)]
+
+for col in range(9):
+    counts = [0]* 10
+    for row in range(9):
+        idx = arr[row][col]
+        if counts[idx]:
+            return 0
+        counts[idx] = 1
