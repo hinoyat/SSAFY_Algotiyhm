@@ -342,14 +342,14 @@ from pprint import pprint
 
 # 스도쿠 강사님
 
-test_case = int(input())
-for tc in range(1, test_case+1):
-    arr = [list(map(int,input().split()))for _ in range(9)]
-
-for col in range(9):
-    counts = [0]* 10
-    for row in range(9):
-        idx = arr[row][col]
-        if counts[idx]:
-            return 0
-        counts[idx] = 1
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     arr = [list(map(int,input().split()))for _ in range(9)]
+#
+# for col in range(9):
+#     counts = [0]* 10
+#     for row in range(9):
+#         idx = arr[row][col]
+#         if counts[idx]:
+#             return 0
+#         counts[idx] = 1
