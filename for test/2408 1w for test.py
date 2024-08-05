@@ -711,7 +711,7 @@ from pprint import pprint
 #             break
 #         elif cen > B:
 #             end = cen
-#         else:
+#         else: 
 #             start = cen
     
 #     winner = None
@@ -757,3 +757,37 @@ from pprint import pprint
 #         winner = 0
 
 #     print(f'#{tc} {winner}')
+
+# # 고대유적
+# test_case = int(input())
+# for tc in range(1, test_case + 1):
+#     N, M = map(int, input().split())
+#     arr = [[0 for _ in range(M)]for _ in range(N)]
+#     for a in range(N):
+#         lst = list(map(int, input().split()))
+#         for b in range(M):
+#             arr[a][b] = lst[b]
+    
+#     max_len = 0
+
+#     for i in range(N):
+#         r_len = 0
+#         for j in range(M):
+#             if arr[i][j] == 1:
+#                 r_len += 1
+#                 if r_len > max_len:
+#                     max_len = r_len
+#             else:
+#                 r_len = 0
+
+#     for i in range(M):
+#         c_len = 0
+#         for j in range(N):
+#             if arr[j][i] == 1:
+#                 c_len += 1
+#                 if c_len > max_len:
+#                     max_len = c_len
+#             else:
+#                 c_len = 0
+#     print(f'#{tc} {max_len}')
+

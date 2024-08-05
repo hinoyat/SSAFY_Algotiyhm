@@ -1,24 +1,24 @@
-# 빠르게 강사님
-test = 1
-pattern = 1
-ip = jp = 0
-while ip<len(test) and jp<len(pattern):
-    if test[ip] == pattern[jp]:
-        ip += 1
-        jp += 1
-    else:
-        ip = ip - jp +1
-        jp = 0
+# # 빠르게 강사님
+# test = 1
+# pattern = 1
+# ip = jp = 0
+# while ip<len(test) and jp<len(pattern):
+#     if test[ip] == pattern[jp]:
+#         ip += 1
+#         jp += 1
+#     else:
+#         ip = ip - jp +1
+#         jp = 0
 
-    # if test[ip != pattern
-    #     ip = ip - jp
-    #     jp = -1
-    #
-    # else:
-    #     ip += 1
-    #     jp +=1
+#     # if test[ip != pattern
+#     #     ip = ip - jp
+#     #     jp = -1
+#     #
+#     # else:
+#     #     ip += 1
+#     #     jp +=1
 
-if jp ==len(pattern):
+# if jp ==len(pattern):
 
 
 
@@ -247,19 +247,29 @@ if jp ==len(pattern):
 #     print(f'#{tc} {max_len}')
 
 
-# 회문 1
-test_case = int(input())
-for _ in range(test_case):
-    # M은 펠린드롬
-    lst = []
-    N, M = map(int, input().split())
-    arr = [input() for _ in range(N)]
+# # 회문 1
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     # M은 펠린드롬
+#     lst = []
+#     N, M = map(int, input().split())
+#     arr = [input() for _ in range(N)]
 
-    for i in range(N):
-        for j in range(N-M+1):
-            if arr[i][j:j+M] == arr[i][j:j+M:-1]:
-                lst.append(arr[i][j:j+M])
+#     for i in range(N):
+#         for j in range(N-M+1):
+#             word_r = arr[i][j:j+M]
+#             if word_r == word_r[::-1]:
+#                 lst.append(word_r)
 
-                # if arr[j:j+M][i] == arr[j:j+M:-1][i]:
-                #     lst.append(arr[j:j+M][i])
-    print(lst)
+#     for i in range(N):
+#         for j in range(0, N-M+1):
+#             word = ''
+#             for s in range(M):
+#                 word += arr[j+s][i]
+            
+#             if word == word[::-1]:
+#                 lst.append(word)
+
+
+#     print(f'#{tc}', end=' ')
+#     print(*lst)
