@@ -119,10 +119,135 @@
 
 
 
-# # 백만장자 프로젝트
-test_case = int(input())
-for tc in range(1, test_case+1):
-    N = int(input())
-    price = list(map(int, input().split()))
-    print(price)
+# # # 백만장자 프로젝트 틀림;';;;;;;;;;;;
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     N = int(input())
+#     price_lst = list(map(int, input().split()))
+#     print(price_lst)
+#     max_p = max(price_lst)
 
+#     sell = 0
+#     i = 0
+#     buy = 0
+#     cnt = 0
+#     # max 값까지 계속 사기
+#     while i <  N:
+#         if price_lst[i] == max_p:
+#             sell += price_lst[i] * cnt - buy
+#             cnt += 1
+#             break
+#         else:
+#             buy += price_lst[i]
+#             cnt += 1
+#         i += 1
+    
+#     for _ in range(cnt):
+#         price_lst.pop(0)
+    
+#     buy = 0
+#     cnt = 0
+#     # 이제 끝날 때 까지 해보자
+#     while len(price_lst) > 1:
+#         v = price_lst.pop(0)
+#         max_p = max(price_lst)
+#         if len(price_lst) == 1:
+#             if v >= price_lst[0]:
+#                 break
+#             else:
+#                 cnt += 1
+#                 buy += v
+#                 sell += (price_lst[0] * cnt) - buy
+#         if len(price_lst)>1:
+#             if v < max_p:
+#                 buy += v
+#                 cnt += 1
+#             elif v == max_p:
+#                 sell += price_lst[0] * cnt - buy
+#                 cnt += 1
+#                 buy = 0
+#             else:
+#                 pass
+                
+#     print(f'번 돈{sell} 인덱스{i} 구매한 가격{buy}  판매 수{cnt}')
+
+
+
+# ## 백만장자 2
+# test_case = int(input())
+# for tc in range(1, test_case+1):
+#     N = int(input())
+#     price_lst = list(map(int, input().split()))
+#     # print(price_lst)
+
+#     sell = 0
+#     i = 0
+#     buy = 0
+#     cnt = 0
+#     # max 값까지 계속 사기
+#     while i <  N:
+#         max_p = max(price_lst[i:])
+#         if price_lst[i] < max_p:
+#             buy += price_lst[i]
+#             cnt += 1
+
+#         if price_lst[i] == max_p:
+#             sell += price_lst[i] * cnt - buy
+#             cnt += 1
+#             buy = 0
+#             cnt = 0
+#         i += 1
+#     # print(f'번 돈{sell} 인덱스{i} 구매한 가격{buy} 판매 수{cnt}')
+#     print(f'#{tc} {sell}')        
+
+# # 백만장자 뒤에서부터
+# test_case = int(input())
+# for tc in range(1, test_case + 1):
+#     N = int(input())
+#     price_lst = list(map(int, input().split()))
+#     max_i = N-1
+#     sell = 0
+#     max_p = price_lst[max_i]
+#     for i in range(N - 2, -1, -1):
+#         if price_lst[i] > max_p:
+#             max_p = price_lst[i]
+#         sell += max_p - price_lst[i]
+        
+#     print(f'#{tc} {sell}')
+
+
+
+
+# # 붕어빵 팔기
+# test_case = int(input())
+# for tc in range(1, test_case + 1):
+#     # N명의 사람 # M 붕어빤 시간 # K개 붕어빵
+#     N, M, K = map(int, input().split())
+#     pep = list(map(int, input().split()))
+#     dct = {}
+#     dct[0] = 0
+#     pep.sort()
+#     for i in pep:
+#         if i not in dct:
+#             dct[i] = 1
+#         else:
+#             dct[i] += 1
+#     a = [0] + list(dct.keys())
+#     can = False
+#     time = -1
+#     i = 1
+#     while time != max(pep) and i < len(a):
+#         time+=1
+#         fish = (time // M) * K
+#         if time == a[i]:
+#             if fish >= dct[a[i-1]]:
+#                 can = True
+#                 dct[a[i]] += dct[a[i-1]]
+#                 i += 1
+#             else:
+#                 can = False
+#                 break
+#     print(f'#{tc} {can}')
+
+
+# 붕어빵 찾기
