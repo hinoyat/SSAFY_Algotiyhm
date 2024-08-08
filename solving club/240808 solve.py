@@ -110,43 +110,43 @@
 
 
 
-# forth
-def cal(num1, num2, i):
-    if i == '+':
-        return num2 + num1
-    if i == '-':
-        return num2 - num1
-    if i == '*':
-        return num2 * num1
-    if i == '/':
-        return int(num2 / num1)
+# # forth
+# def cal(num1, num2, i):
+#     if i == '+':
+#         return num2 + num1
+#     if i == '-':
+#         return num2 - num1
+#     if i == '*':
+#         return num2 * num1
+#     if i == '/':
+#         return int(num2 / num1)
 
 
-test_case = int(input())
-for tc in range(1, test_case + 1):
-    wow = input().strip().split()
-    stack = []
-    result = ''
-    d_cnt = 0
-    e_cnt = 0
-    for i in wow:
-        if i.isdigit():
-            stack.append(int(i))
-        elif i != '.' and len(stack)>=2:
-            num1 = stack.pop()
-            num2 = stack.pop()
-            result = cal(num1, num2, i)
-            stack.append(result)
+# test_case = int(input())
+# for tc in range(1, test_case + 1):
+#     wow = input().strip().split()
+#     stack = []
+#     result = ''
+#     d_cnt = 0
+#     e_cnt = 0
+#     for i in wow:
+#         if i.isdigit():
+#             stack.append(int(i))
+#         elif i != '.' and len(stack)>=2:
+#             num1 = stack.pop()
+#             num2 = stack.pop()
+#             result = cal(num1, num2, i)
+#             stack.append(result)
 
 
-    for i in wow:
-        if i != '.':
-            if i.isdigit():
-                d_cnt += 1
-            else:
-                e_cnt += 1
+#     for i in wow:
+#         if i != '.':
+#             if i.isdigit():
+#                 d_cnt += 1
+#             else:
+#                 e_cnt += 1
 
-    print(f'#{tc} {result}')
+#     print(f'#{tc} {result}')
 
 
 
@@ -250,3 +250,50 @@ for tc in range(1, test_case + 1):
 #
 #     visited = [[False] * N for _ in range(N)]
 #     print(f'#{tc} {dfs_r(stR, stC)}')
+
+
+# # 로봇
+# T = int(input())
+# for tc in range(T):
+#     input_lst = input().split()
+
+
+#     pos_o = 1
+#     pos_b = 1
+
+#     pre_robot = input_lst[i]
+
+#     oposite_time = 0
+#     total = 0
+
+#     for i in range(1, len(input_lst), 2):
+#         robot = input_lst[i]
+#         no = input_lst[i+1]
+
+#         if robot == 'B':
+#             pass
+#         else:
+#             pass
+#         if pre_robot == robot:
+#             pass
+#         else:
+#             pass
+#         pre_robot = robot
+
+# 로봇 my ver
+T = int(input())
+for tc in range(T):
+    lst = input().split()
+    print(lst)
+    B_lst = 0:   
+    
+    cnt_B = 0
+    cnt_O = 0
+    i = 1
+    while i < len(lst):
+        if lst[i] == 'B':
+            pass
+
+        
+        else:
+            pass

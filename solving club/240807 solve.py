@@ -250,4 +250,88 @@
 #     print(f'#{tc} {can}')
 
 
-# 붕어빵 찾기
+# #붕어빵 찾기
+# test_case = int(input())
+# for tc in range(1, test_case + 1):
+#     # N명의 사람 # M 붕어빤 시간 # K개 붕어빵
+#     N, M, K = map(int, input().split())
+#     people = list(map(int, input().split()))
+#     people.sort()
+
+
+#     fish = 0
+#     time = 0
+#     total_time = 0
+#     i = 0
+
+#     possible = 'Possible'
+#     while i < len(people):
+#         if time > 0:
+#             if time % M == 0:
+#                 fish += K
+
+
+#         if time == people[i]:
+#             fish -= 1
+#             if fish < 0:
+#                 possible = 'Impossible'
+#                 break
+#             else:
+#                 i += 1
+#         time +=1
+
+#     print(f'{tc} {possible}')
+
+
+
+#붕빵어 찾기
+test_case = int(input())
+for tc in range(1, test_case + 1):
+    # N명의 사람 # M 붕어빤 시간 # K개 붕어빵
+    N, M, K = map(int, input().split())
+    people = list(map(int, input().split()))
+
+    people.sort()
+
+    # 붕어빵 저장소
+    fish = 0
+    # 흘러 가버린 시간
+    time = 0
+    # 사람들 오는 시간 리스트의 인덱스
+    i = 0
+
+    # 기본 값은 가능!
+    possible = 'Possible'
+
+    # 사람들이 다 올 동안에
+    while i < len(people):
+
+        # 내가 만든 붕어빵 구하기
+        # 조건이 0보다 큰 경우로 잡은 이유 : 시간이 0일때는 붕어빵을 못 만들어요
+        # 시간이 1보다 클 때 만들 수 있어요
+        if time > 0:
+            # 붕어빵을 만드는데 걸리는 시간이 M이니까
+            # 시간이 M만큼 지나갔을 때 만들 수 있어요
+            # 나머지가 0인 경우가 M만큼 지나간 경우
+            if time % M == 0:
+                fish += K
+
+        # 이 사람이 온 시간이 되면
+        # 이때까지는 붕어빵을 계속 만들 거에요 시간 늘리면서
+        # 시간이 될 때까지 time 늘려요 if 문에 걸릴 때까지
+        if time >= people[i]:
+            # 붕어빵 하나 팔기
+            fish -= 1
+            # 팔았는데 붕어빵이 0개보다 적다?
+            if fish < 0:
+                # 탈락
+                possible = 'Impossible'
+                break
+            # 붕어빵이 0개 이거나 남았다?
+            else: 
+                # 다음사람 받을 준비
+                i += 1
+        # 아무일도 없다? 시간 늘려
+        time += 1
+
+    print(f'#{tc} {possible}')

@@ -108,30 +108,22 @@ from pprint import pprint
 #         print()
 
 
-# 로봇
-T = int(input())
-for tc in range(T):
-    input_lst = input().split()
+# # 비밀버노
+# test_case = 10
+# for tc in range(1, test_case+1):
+#     N, num = input().split()
+#     n = int(N)
 
+#     stack = []
+    
+#     for i in range(n):
+#         if not stack:
+#             stack.append(num[i])
+#         else:
+#             if num[i] != stack[-1]:
+#                 stack.append(num[i])
+#             else:
+#                 stack.pop()
+#     print(f'#{tc}',''.join(stack))
 
-    pos_o = 1
-    pos_b = 1
-
-    pre_robot = input_lst[i]
-
-    oposite_time = 0
-    total = 0
-
-    for i in range(1, len(input_lst), 2):
-        robot = input_lst[i]
-        no = input_lst[i+1]
-
-        if robot == 'B':
-            pass
-        else:
-            pass
-        if pre_robot == robot:
-            pass
-        else:
-            pass
-        pre_robot = robot
+# 붕어빵
