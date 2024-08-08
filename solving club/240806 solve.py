@@ -106,3 +106,32 @@ from pprint import pprint
 #             if b != 0:
 #                 print(b, end=' ')
 #         print()
+
+
+# 로봇
+T = int(input())
+for tc in range(T):
+    input_lst = input().split()
+
+
+    pos_o = 1
+    pos_b = 1
+
+    pre_robot = input_lst[i]
+
+    oposite_time = 0
+    total = 0
+
+    for i in range(1, len(input_lst), 2):
+        robot = input_lst[i]
+        no = input_lst[i+1]
+
+        if robot == 'B':
+            pass
+        else:
+            pass
+        if pre_robot == robot:
+            pass
+        else:
+            pass
+        pre_robot = robot
