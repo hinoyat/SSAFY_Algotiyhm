@@ -280,20 +280,64 @@
 #             pass
 #         pre_robot = robot
 
-# 로봇 my ver
-T = int(input())
-for tc in range(T):
-    lst = input().split()
-    print(lst)
-    B_lst = 0:   
-    
-    cnt_B = 0
-    cnt_O = 0
-    i = 1
-    while i < len(lst):
-        if lst[i] == 'B':
-            pass
+# # 로봇 my ver
+# T = int(input())
+# for tc in range(T):
+#     lst = input().split()
+#     print(lst)
+#     B_lst = 0:
+#
+#     cnt_B = 0
+#     cnt_O = 0
+#     i = 1
+#     while i < len(lst):
+#         if lst[i] == 'B':
+#             pass
+#
+#         else:
+#             pass
 
-        
+
+
+# # forth
+# T = int(input())
+# for tc in range(T):
+#     word = input()
+#     print(word)
+
+
+
+# 로봇
+
+T = int(input())
+for tc in range(1, T+1):
+    input_s = input().split()
+
+    pos_b = pos_o = 1
+    total = 0
+    oposite_time = 0
+    pre_robot = input_s[1]
+    for i in range(1, len(input_s), 2):
+        robot = input_s[i]
+        pos = int(input_s[i+1])
+
+        if robot == 'B':
+            time = abs(pos-pos_b)
+            pos_b = pos
         else:
-            pass
+            time = abs(pos - pos_o)
+            pos_o = pos
+
+        if pre_robot == robot:
+            total += time + 1
+            oposite_time += time + 1
+        else:
+            if oposite_time - time > 0:
+                time = 1
+            else:
+                time = time - oposite_time + 1
+            total += time
+            oposite_time = time
+            pre_robot = robot
+
+    print(f'#{tc} {total}')
