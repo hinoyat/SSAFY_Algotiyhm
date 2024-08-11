@@ -220,32 +220,260 @@
 
 
 # 계산기 2
-def cal(num1, num2, val):
-    if val == '+':
-        return num2 + num1
-    if val == '-':
-        return num2 - num1
-    if val == '*':
-        return num2 * num1
-    if val == '/':
-        return int(num2 / num1)
+# def cal(num1, num2, val):
+#     if val == '+':
+#         return num2 + num1
+#     if val == '-':
+#         return num2 - num1
+#     if val == '*':
+#         return num2 * num1
+#     if val == '/':
+#         return int(num2 / num1)
 
-def change(word):
-    stack = []
-    result = ''
-    stack.append(word[0])
-    while stack:
-        if stack[-1].isdigit():
-            result += stack
+# def change(word):
+#     icp = {'+': 1, '-': 1, '*': 2, '/': 2}
+#     isp = {'+': 1, '-': 1, '*': 2, '/': 2}
+#     stack = []
+#     result = ''
+
+#     for c in word:
+#         if c.isdigit():
+#             result += c
+#         else:
+#             if stack and isp[stack[-1]] >= icp[c]:
+#                 result += stack.pop()
+#             stack.append(c)
+
+#     while stack:
+#         result += stack.pop()
+
+#     # print(stack)
+#     return result
+
+# def change2(word):
+#     stack = []
+#     result = 0
+#     for i in word:
+#         if i.isdigit():
+#             stack.append(int(i))
+#         else:
+#             num1 = stack.pop()
+#             num2 = stack.pop()
+#             result2 = cal(num1, num2, i)
+#             stack.append(result2)
+#     return stack
+
+# T = 10
+# for tc in range(1, T + 1):
+#     n = int(input())
+#     word = list(input())
+
+#     r = change(word)
+#     r2 = change2(r)
+#     print(f'#{tc}', end=' ')
+#     print(*r2)
+
+
+# 4880 토너먼트 카드 게임
+# def group_game(group):
+#     stack = []
+#     while len(group) >1:
+#         player1 = group.pop()
+#         player2 = group.pop()
+#         result = rock_scissors_paper(player1, player2)
+#         stack.append(result)
+
+#     if len(group) == 1:
+#         stack.append(group[0])
+#         return stack
+#     if len(stack) >1:
+#         group_game(stack)
+
+#     return stack
+
+# def who_is_winner(i, j, group):
+#     slice_p = i+j//2
+#     stack_a = []
+#     stack_b = []
+#     a = lst[:slice_p]
+#     b = lst[slice_p:]
+#     if len(a)>1:
+#         stack_a.append(group_game(a))
+#     else:
+#         stack_a.append(a[0])
+
+#     if len(b)>1:
+#         stack_b.append(group_game(b))
+#     else:
+#         stack_b.append(b[0])
+
+#     return stack_a, stack_b
+
+# def who_is_winner(i, j, group):
+    # if len(group) % 2 == 0:
+    #     slice_p = (i-1)+j//2
+    # else:
+    #     slice_p = i+j//2
+#     stack_a = []
+#     stack_b = []
+#     a = group[:slice_p]
+#     b = group[slice_p:]
+#     if len(a)>1:
+#         p1 = a.pop(0)
+#         p2 = a.pop(0)
+#         r_a = rock_scissors_paper(p1, p2)
+#         stack_a.append(r_a)
+#     else:
+#         stack_a.append(a[0])
+        
+#     if len(b)>1:
+#         p1 = b.pop(0)
+#         p2 = b.pop(0)
+#         r_b = rock_scissors_paper(p1, p2)
+#         stack_b.append(r_b)
+#     else:
+#         stack_b.append(b[0])
+    
+#     return stack_a, stack_b
+
+
+
+# def rock_scissors_paper(a, b):
+#     if (a== 1 and b == 3) or (a==2 and b==1) or (a==3 and b == 2) or (a == b):
+#         return a
+#     else:
+#         return b
+
+
+# T = int(input())
+# for tc in range(T):
+#     N = int(input())
+#     lst = list(map(int, input().split()))
+#     r = who_is_winner(1, N, lst)
+
+#     print(r)
+    # group_a = []
+    # group_b = []
+    # if len(lst) % 2 == 0:
+    #     group_a = lst[:N//2]
+    #     group_b = lst[N//2:]
+    # else:
+    #     group_a = lst[:N//2+1]
+    #     group_b = lst[N//2+1:]
+
+    # print(group_a, group_b)
 
 
 
 
 
-T = 10
-for tc in range(1, T + 1):
-    word = list(input())
+# # 가위 바위 보 4트
 
-    stack = []
+# def who_is_winner(i, j, group):
+#     if len(group) % 2 == 0:
+#         slice_p = (i-1)+j//2
+#     else:
+#         slice_p = i+j//2
+#     stack = []
 
-    result = 0
+#     a = group[:slice_p]
+#     b = group[slice_p:]
+#     # print(a, b)
+#     if len(a)>1:
+#         p1 = a.pop(0)
+#         p2 = a.pop(0)
+#         r_a = rock_scissors_paper(p1, p2)
+#         stack.append(r_a)
+#     else:
+#         stack.append(a[0])
+        
+#     if len(b)>1:
+#         p1 = b.pop(0)
+#         p2 = b.pop(0)
+#         r_b = rock_scissors_paper(p1, p2)
+#         stack.append(r_b)
+#     else:
+#         stack.append(b[0])
+    
+#     # who_is_winner(i, len(stack), stack)
+#     if len(a)> 1:
+#         r_a = who_is_winner(i, len(a), a)
+#     if len(b) > 1:
+#         r_b = who_is_winner(b, len(b), b)
+    
+    
+#     return stack, a, b
+
+# def rock_scissors_paper(a, b):
+#     if (a== 1 and b == 3) or (a==2 and b==1) or (a==3 and b == 2) or (a == b):
+#         return a
+#     else:
+#         return b
+
+
+# T = int(input())
+# for tc in range(T):
+#     N = int(input())
+#     lst = list(map(int, input().split()))
+#     r = who_is_winner(1, N, lst)
+
+#     print(r)
+
+
+
+# # 가위 바위 보 5트
+
+# def who_is_winner(i, j, idx):
+#     if len(idx) % 2 == 0:
+#         slice_p = (i-1)+j//2
+#     else:
+#         slice_p = i+j//2
+
+
+#     if len(idx) == 1:
+#         return idx[0]
+    
+#     stack = []
+    
+#     if len(idx) > 1:
+#         a_g = idx[: slice_p]
+#         b_g = idx[slice_p:]
+#         if len(a_g) > 1:
+#             a1 = a_g.pop(0)
+#             a2 = a_g.pop(0)
+#             a_r = rock_scissors_paper(a1, a2)
+#             stack.append(a_r)
+#         else:
+#             stack.append(a_g[0])
+
+#         if len(b_g) > 1:
+#             b1 = b_g.pop(0)
+#             b2 = b_g.pop(0)
+#             b_r = rock_scissors_paper(b1, b2)
+#             stack.append(b_r)
+#         else:
+#             stack.append(b_g[0])
+
+
+#     if len(stack) > 1:
+#         who_is_winner(i, len(stack), stack)
+#     if len(stack) == 1:
+#         return stack
+
+
+# def rock_scissors_paper(a, b):
+#     if (a== 1 and b == 3) or (a==2 and b==1) or (a==3 and b == 2) or (a == b):
+#         return a
+#     else:
+#         return b
+
+
+# T = int(input())
+# for tc in range(T):
+#     N = int(input())
+#     lst = list(map(int, input().split()))
+#     idx = [i for i in range(1, N+1)]
+
+#     r = who_is_winner(1, N, lst)
+#     print(r)
+#     print(idx)

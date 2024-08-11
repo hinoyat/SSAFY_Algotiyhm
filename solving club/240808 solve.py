@@ -300,44 +300,83 @@
 
 
 # # forth
+# def cal(num1, num2, val):
+#     if val == '+':
+#         return num2 + num1
+#     if val == '-':
+#         return num2 - num1
+#     if val == '*':
+#         return num2 * num1
+#     if val == '/':
+#         if num1 == 0:
+#             return 'error'
+#         else:
+#             return int(num2 / num1)
+
+# def change(word):
+#     stack = []
+#     for i in word:
+#         if i.isdigit():
+#             stack.append(int(i))
+#         elif i == '.':
+#             if len(stack) == 1:
+#                 return stack
+#             else:
+#                 return 'error'            
+#         else:
+#             try:
+#                 num1 = stack.pop()
+#                 num2 = stack.pop()
+#             except BaseException:
+#                 return 'error'
+#             result = cal(num1, num2, i)
+#             stack.append(result)
+    
+#     return stack
+
 # T = int(input())
-# for tc in range(T):
-#     word = input()
-#     print(word)
+# for tc in range(1, T+1):
+#     word = input().split()
+#     r = change(word)
+#     print(f'#{tc}', end=' ')
+#     if r == 'error':
+#         print(r)
+#     else:
+#         print(*r)
 
 
 
-# 로봇
+# # 로봇
 
-T = int(input())
-for tc in range(1, T+1):
-    input_s = input().split()
+# T = int(input())
+# for tc in range(1, T+1):
+#     input_s = input().split()
 
-    pos_b = pos_o = 1
-    total = 0
-    oposite_time = 0
-    pre_robot = input_s[1]
-    for i in range(1, len(input_s), 2):
-        robot = input_s[i]
-        pos = int(input_s[i+1])
+#     pos_b = pos_o = 1
+#     total = 0
+#     oposite_time = 0
+#     pre_robot = input_s[1]
+#     for i in range(1, len(input_s), 2):
+#         robot = input_s[i]
+#         pos = int(input_s[i+1])
 
-        if robot == 'B':
-            time = abs(pos-pos_b)
-            pos_b = pos
-        else:
-            time = abs(pos - pos_o)
-            pos_o = pos
+#         if robot == 'B':
+#             time = abs(pos-pos_b)
+#             pos_b = pos
+#         else:
+#             time = abs(pos - pos_o)
+#             pos_o = pos
 
-        if pre_robot == robot:
-            total += time + 1
-            oposite_time += time + 1
-        else:
-            if oposite_time - time > 0:
-                time = 1
-            else:
-                time = time - oposite_time + 1
-            total += time
-            oposite_time = time
-            pre_robot = robot
+#         if pre_robot == robot:
+#             total += time + 1
+#             oposite_time += time + 1
+#         else:
+#             if oposite_time - time > 0:
+#                 time = 1
+#             else:
+#                 time = time - oposite_time + 1
+#             total += time
+#             oposite_time = time
+#             pre_robot = robot
 
-    print(f'#{tc} {total}')
+#     print(f'#{tc} {total}')
