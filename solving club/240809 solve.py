@@ -477,3 +477,35 @@
 #     r = who_is_winner(1, N, lst)
 #     print(r)
 #     print(idx)
+
+
+
+# 러시아
+def cal(wb, bc):
+    sumV = 0
+    for i in range(0, wb): # white로 변경
+        sumV += counts[i][1] + counts[i][2]
+    for i in range(wb, br+1):
+        sumV += counts[i][0] + counts[i][2] # blue 로 변경
+    for i in range(br+1, N):
+        sumV += counts[i][0] + counts[i][1] # red로 변경
+    return sumV
+T = int(input())
+for tc in range(1, T+1):
+    N, M = map(int, input().split())
+    arr = [input() for _ in range(N)]
+
+    counts = [[0,0,0] for _ in range(N)]
+    for i in range(N):
+        counts[i][0] = arr[i].count('W')
+        counts[i][1] = arr[i].count('B')
+        counts[i][2] = arr[i].count('R')
+    minV = N * M
+    # 3개 중에서 2개를 뽑는 조합
+    # 재귀를 안 쓰는 이유는 2개만 하면 되니꺼
+    for wb in range(1, N - 1): # 블루의 시작점 : 1 | 뒤에 최소 2개는 있어야 한다
+        for br in range(wb, N-1):
+            val = cal(wb, br)
+            if minV > val:
+                minV = val
+    print(f'#{tc} {minV}')
