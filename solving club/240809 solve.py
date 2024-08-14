@@ -480,32 +480,65 @@
 
 
 
-# 러시아
-def cal(wb, bc):
-    sumV = 0
-    for i in range(0, wb): # white로 변경
-        sumV += counts[i][1] + counts[i][2]
-    for i in range(wb, br+1):
-        sumV += counts[i][0] + counts[i][2] # blue 로 변경
-    for i in range(br+1, N):
-        sumV += counts[i][0] + counts[i][1] # red로 변경
-    return sumV
-T = int(input())
-for tc in range(1, T+1):
-    N, M = map(int, input().split())
-    arr = [input() for _ in range(N)]
+# # 러시아
+# def cal(wb, bc):
+#     sumV = 0
+#     for i in range(0, wb): # white로 변경
+#         sumV += counts[i][1] + counts[i][2]
+#     for i in range(wb, br+1):
+#         sumV += counts[i][0] + counts[i][2] # blue 로 변경
+#     for i in range(br+1, N):
+#         sumV += counts[i][0] + counts[i][1] # red로 변경
+#     return sumV
+# T = int(input())
+# for tc in range(1, T+1):
+#     N, M = map(int, input().split())
+#     arr = [input() for _ in range(N)]
+#
+#     counts = [[0,0,0] for _ in range(N)]
+#     for i in range(N):
+#         counts[i][0] = arr[i].count('W')
+#         counts[i][1] = arr[i].count('B')
+#         counts[i][2] = arr[i].count('R')
+#     minV = N * M
+#     # 3개 중에서 2개를 뽑는 조합
+#     # 재귀를 안 쓰는 이유는 2개만 하면 되니꺼
+#     for wb in range(1, N - 1): # 블루의 시작점 : 1 | 뒤에 최소 2개는 있어야 한다
+#         for br in range(wb, N-1):
+#             val = cal(wb, br)
+#             if minV > val:
+#                 minV = val
+#     print(f'#{tc} {minV}')
 
-    counts = [[0,0,0] for _ in range(N)]
-    for i in range(N):
-        counts[i][0] = arr[i].count('W')
-        counts[i][1] = arr[i].count('B')
-        counts[i][2] = arr[i].count('R')
-    minV = N * M
-    # 3개 중에서 2개를 뽑는 조합
-    # 재귀를 안 쓰는 이유는 2개만 하면 되니꺼
-    for wb in range(1, N - 1): # 블루의 시작점 : 1 | 뒤에 최소 2개는 있어야 한다
-        for br in range(wb, N-1):
-            val = cal(wb, br)
-            if minV > val:
-                minV = val
-    print(f'#{tc} {minV}')
+# 당근
+# 구간의 l m s의 차이를 리턴, 단 구간을 만들 수 없으면 -1 리턴
+def cal(m_s, m_e):
+    small = sum(counts[:m_s])
+    medium = sum(counts[m_s:m_e+1])
+    large = sum(counts[m_e:maxC+1])
+    if small==0 or medium == 0 or large == 0:
+        return -1
+    if small>N//2 or medium > N//2 or large>N//2:
+        return max(small, medium, large) - min(small, medium, large)
+
+
+
+T = int(input())
+for tc in range(T):
+    N = int(input())
+    arr = list(map(int, input().split()))
+    counts = [0] * 31
+    for c in arr:
+        counts[c] += 1
+
+    minC = min(arr)
+    maxC = max(arr)
+    min_v = 1001
+    for med_start in range(minC+1, maxC):
+        for med_end in range(med_start, maxC):
+            t = cal(med_start, med_end)
+            if min_v > t:
+                min_v = t
+    if min_v == 1001:
+        min_v = -1
+    print(min_v)
